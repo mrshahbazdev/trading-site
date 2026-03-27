@@ -309,10 +309,30 @@ button { background: none; border: none; color: inherit; cursor: pointer; outlin
 
 .sell-btn {
     background-color: var(--accent-red);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.sell-btn:hover {
+    background-color: #d32f2f;
+    transform: translateY(-1px);
+}
+
+.sell-btn:active {
+    transform: translateY(1px);
 }
 
 .buy-btn {
     background-color: var(--accent-green);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.buy-btn:hover {
+    background-color: #00897b;
+    transform: translateY(-1px);
+}
+
+.buy-btn:active {
+    transform: translateY(1px);
 }
 
 .btn-title {
@@ -350,10 +370,32 @@ button { background: none; border: none; color: inherit; cursor: pointer; outlin
     padding: 10px 16px;
     border-bottom: 1px solid var(--border-color);
     cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 .symbol-item:hover {
     background-color: var(--bg-panel);
+}
+
+/* Flash Animations */
+@keyframes flashGreen {
+    0% { background-color: rgba(38, 166, 154, 0.5); color: #fff; }
+    100% { background-color: transparent; }
+}
+
+@keyframes flashRed {
+    0% { background-color: rgba(239, 83, 80, 0.5); color: #fff; }
+    100% { background-color: transparent; }
+}
+
+.flash-green {
+    animation: flashGreen 0.5s ease-out;
+    border-radius: 4px;
+}
+
+.flash-red {
+    animation: flashRed 0.5s ease-out;
+    border-radius: 4px;
 }
 
 /* Calendar Widget */
@@ -492,13 +534,17 @@ button { background: none; border: none; color: inherit; cursor: pointer; outlin
     margin-left: 8px;
 }
 
-/* Chart Area Placeholder */
+/* Chart Area */
 .chart-area {
     flex: 1;
     background-color: var(--bg-dark);
     position: relative;
     border-bottom: 1px solid var(--border-color);
     overflow: hidden;
+    /* Ensure the container has height so Lightweight Charts can render */
+    min-height: 400px;
+    height: 100%;
+    width: 100%;
 }
 
 .measure-tooltip {
@@ -672,4 +718,43 @@ button { background: none; border: none; color: inherit; cursor: pointer; outlin
 
 .empty-state p {
     font-size: 12px;
+}
+
+/* Positions Table */
+.positions-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.positions-table th {
+    text-align: left;
+    padding: 8px 16px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-header);
+    position: sticky;
+    top: 0;
+}
+
+.positions-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.positions-table tr:hover {
+    background-color: var(--bg-panel);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.close-btn:hover {
+    background-color: rgba(239, 83, 80, 0.1);
 }
